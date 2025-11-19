@@ -295,7 +295,7 @@ Titles
 .title-line {
   flex: 1;
   width: 100%;
-  border-bottom: 1px solid #2f282e;
+  border-bottom: 1px solid #ddd;
 }
 @media (max-width: 980px) {
   .title-line {
@@ -579,7 +579,6 @@ Menu
   }
 }
 .menu__list {
-  max-width: 415px;
   flex: 1;
   display: flex;
   align-items: center;
@@ -885,10 +884,11 @@ Hero
   }
 }
 .hero__subtitle {
+  color: #d4effe;
   max-width: 346px;
   font-family: TacticSansExd;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 130%;
   margin-left: auto;
   margin-top: -20px;
@@ -916,14 +916,19 @@ Hero
 .hero__benefit {
   width: max-content;
   padding: 10px 30px;
-  border: 1px solid #f2f2f2;
+  border: 2px solid #fff;
   border-radius: 50px;
   position: relative;
   font-family: Gilroy;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 140%;
   text-align: left;
+}
+.hero__benefit i {
+  display: inline-block;
+  margin-right: 10px;
+  color: #60df77;
 }
 .hero__benefit:not(:last-child) {
   margin-bottom: 10px;
@@ -942,7 +947,7 @@ Hero
   }
 }
 .hero__att {
-  color: #fff;
+  color: #60df77;
   font-family: Gilroy;
   font-size: 20px;
   font-weight: 700;
@@ -997,7 +1002,7 @@ Works
   gap: 10px;
   justify-content: space-between;
   margin-bottom: 80px;
-  color: #080a0f;
+  color: #fff;
 }
 .works__title span:nth-child(3) {
   display: inline-block;
@@ -1749,7 +1754,6 @@ Gallery
 Steps
 ---------------------------*/
 .steps {
-  background: #f1f1f1;
   padding-top: 150px;
 }
 @media (max-width: 980px) {
@@ -1771,7 +1775,7 @@ Steps
   }
 }
 .steps__wrapper {
-  background: #fff;
+  background: #0d1e42;
   border-radius: 75px;
 }
 @media (max-width: 980px) {
@@ -1791,7 +1795,7 @@ Steps
   position: relative;
 }
 .steps__item:not(:last-child) {
-  border-bottom: 1px solid rgb(149, 145, 148);
+  border-bottom: 1px solid #34508f;
 }
 @media (hover: hover) {
   .steps__item:hover .steps__item-image {
@@ -1801,7 +1805,7 @@ Steps
 }
 @media (hover: hover) {
   .steps__item:hover .steps__item-num {
-    color: #fdce2a;
+    color: #2453ff;
   }
 }
 .steps__item:nth-child(2) .steps__item-image {
@@ -1813,10 +1817,13 @@ Steps
 .steps__item:nth-child(1) .steps__item-image {
   left: 20%;
 }
+.steps__item:nth-child(5) .steps__item-image {
+  left: 20%;
+}
 @media (max-width: 600px) {
   .steps__item {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.75fr 1.25fr;
     gap: 8px 15px;
     padding: 20px 0 30px;
   }
@@ -1828,7 +1835,7 @@ Steps
   }
 }
 .steps__item-num {
-  color: rgb(47, 40, 46);
+  color: #60df77;
   font-family: TacticSansExd;
   font-size: 30px;
   font-weight: 400;
@@ -1865,6 +1872,12 @@ Steps
   }
 }
 @media (max-width: 600px) {
+  .steps__item-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+  }
   .steps__item-image img {
     width: 100%;
     height: 100%;
@@ -1876,7 +1889,7 @@ Steps
   flex: 0 0 50%;
 }
 .steps__item-name {
-  color: rgb(47, 40, 46);
+  color: #2453ff;
   font-family: Gilroy;
   font-weight: 600;
   line-height: 140%;
@@ -1890,7 +1903,7 @@ Steps
   }
 }
 .steps__item-descr {
-  color: rgb(47, 40, 46);
+  color: #d4effe;
   font-family: Gilroy;
   font-weight: 400;
   line-height: 140%;
