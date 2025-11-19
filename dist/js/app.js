@@ -249,8 +249,8 @@ if (sliderImgs2.length > 0) {
 
 
 /*------------------------------
-Before after slider
----------------------------*/
+      Gallery
+      ---------------------------*/
 const gallerySlider = document.querySelector(".gallery__slider");
 
 if (gallerySlider) {
@@ -259,6 +259,10 @@ if (gallerySlider) {
       loop: true,
       freeMode: true,
       speed: 1000,
+      lazy: {
+         loadPrevNext: true,
+         loadOnTransitionStart: true
+      },
       navigation: {
          nextEl: '.gallery__slider-next',
          prevEl: '.gallery__slider-prev',
@@ -280,12 +284,15 @@ const sliderImgs3 = document.querySelectorAll(gsBgImgSelector3);
 
 if (sliderImgs3.length > 0) {
    const dynamicEl = [...sliderImgs3].map((sliderImg) => {
+      const realSrc = sliderImg.src;
+
       return {
-         src: sliderImg.src,
-         thumb: sliderImg.src,
+         src: realSrc,
+         thumb: realSrc,
          subHtml: ''
       };
    });
+
 
    const dynamicGallery = document.querySelector(".dynamic-gallery-button2");
 
@@ -308,107 +315,6 @@ if (sliderImgs3.length > 0) {
       });
    });
 }
-
-
-/*------------------------------
-CALCULATOR
----------------------------*/
-//Переключение шагов
-document.addEventListener("DOMContentLoaded", function () {
-   const steps = document.querySelectorAll(".calculator__step");
-   const subtitles = document.querySelectorAll(".calculator__subtitle");
-   const progressThumb = document.querySelector(".calculator__progress-thumb");
-   const prevButton = document.getElementById("prev-step");
-   const nextButton = document.getElementById("next-step");
-   const calculator = document.querySelector(".calculator__steps");
-   let currentStep = 0;
-
-   function updateStep() {
-      calculator.classList.add("loading");
-
-      setTimeout(() => {
-         steps.forEach(step => step.classList.remove("active"));
-         subtitles.forEach(subtitle => subtitle.classList.remove("active"));
-         steps[currentStep].classList.add("active");
-         subtitles[currentStep].classList.add("active");
-
-         let progressPercent = ((currentStep + 1) / steps.length) * 100;
-         progressThumb.style.width = progressPercent + "%";
-
-         if (currentStep === 0) {
-            prevButton.style.display = "none";
-            nextButton.style.display = "flex";
-         } else if (currentStep === steps.length - 1) {
-            prevButton.style.display = "none";
-            nextButton.style.display = "none";
-         } else {
-            prevButton.style.display = "flex";
-            nextButton.style.display = "flex";
-         }
-         calculator.classList.remove("loading");
-      }, 500);
-   }
-   nextButton.addEventListener("click", function () {
-      if (currentStep < steps.length - 1) {
-         currentStep++;
-         updateStep();
-      }
-   });
-   prevButton.addEventListener("click", function () {
-      if (currentStep > 0) {
-         currentStep--;
-         updateStep();
-      }
-   });
-
-   updateStep();
-});
-
-//выбор кузова 
-document.addEventListener("DOMContentLoaded", function () {
-   const labels = document.querySelectorAll(".calculator__type");
-
-   labels.forEach(label => {
-      label.addEventListener("click", function () {
-         labels.forEach(l => l.classList.remove("active"));
-         this.classList.add("active");
-      });
-   });
-});
-
-//выбор детали
-document.addEventListener("DOMContentLoaded", function () {
-   const paths = document.querySelectorAll(".detail-path");
-
-   paths.forEach(path => {
-      path.addEventListener("click", function () {
-         const detailName = this.dataset.detail;
-         const allPaths = document.querySelectorAll(`.detail-path[data-detail="${detailName}"]`);
-         const detailItem = document.querySelector(`.calculator__details-item[data-detail="${detailName}"]`);
-         allPaths.forEach(el => el.classList.toggle("active"));
-         if (detailItem) {
-            detailItem.classList.toggle("active");
-         }
-      });
-   });
-});
-
-//удалить деталь из результатов
-document.addEventListener("DOMContentLoaded", function () {
-   const tableBody = document.querySelector(".result-table__body");
-
-   tableBody.addEventListener("click", function (event) {
-      if (event.target.closest(".remove-row")) {
-         const row = event.target.closest(".result-table__body-row");
-
-         if (row && tableBody.children.length > 1) {
-            row.remove();
-         } else {
-            console.warn("Нельзя удалить последнюю строку.");
-         }
-      }
-   });
-});
 
 
 /*------------------------------
