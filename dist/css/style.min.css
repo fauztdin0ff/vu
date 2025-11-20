@@ -1291,6 +1291,14 @@ Gallery
     padding: 60px 0;
   }
 }
+.gallery__add {
+  margin-top: 40px;
+}
+@media (width < 600px) {
+  .gallery__add .button {
+    width: calc(100% - 20px);
+  }
+}
 .gallery__slide {
   width: 25%;
   height: auto;
@@ -2204,7 +2212,7 @@ faq
   height: 100%;
   border-radius: 12px;
   padding: 35px;
-  color: rgb(47, 40, 46);
+  color: #fff;
   font-family: Gilroy;
   font-weight: 700;
   line-height: 120%;
